@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f4f8; /* Light gray-blue */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 150px auto 150px;
+    grid-template-rows: 80px auto 100px;
+    grid-template-areas: 
+        "header header header"
+        "sidebar main right-sidebar"
+        "chat chat chat";
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+    background-color: #ffffff; /* White */
+    box-shadow: 0 0 15px rgba(15, 15, 15, 0.2);
+    overflow: hidden;
+}
+
+/* Header Styling */
+header {
+    grid-area: header;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    position: relative;
+    background-color: #0d0d0e; /* Dark gray */
+    color: white;
+    padding: 0 20px;
+    animation: slideDown 0.5s ease; /* Slide down animation */
+}
+
+.logo-container {
+    position: absolute;
+    left: 20px; 
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    background-color: rgb(8, 8, 8);
+    color: #f4f5f6; /* Light color */
+    padding: 10px;
+    border-radius: 50%;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Centering the welcome text */
+header h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Left Sidebar */
+.sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #060606; /* Dark gray */
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.sidebar-item {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    animation: fadeIn 0.5s ease; /* Fade-in effect */
+}
+
+.sidebar-item:hover {
+    background-color: #0f0f0f; /* Lighter gray */
+    transform: scale(1.05); /* Scale effect on hover */
+    animation: shake 0.3s ease; /* Shake effect on hover */
+}
+
+/* Adjusting the icon size for the left sidebar */
+.icon {
+    font-size: 32px; 
+    transition: transform 0.3s; /* Add transition for icons */
+}
+
+.sidebar-item:hover .icon {
+    transform: rotate(360deg); /* Rotate effect on hover */
+}
+
+/* Main content area */
+main {
+    grid-area: main;
+    padding: 20px;
+    background-color: #fcfafa; /* Dark gray */
+    border-right: 1px solid #dee2e6;
+    border-left: 1px solid #dee2e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card styling for main content */
+.content-card {
+    background-color: white; /* White */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s; /* Add transition for the card */
+    animation: fadeIn 0.5s ease; /* Fade-in effect */
+}
+
+.content-card:hover {
+    transform: scale(1.03); /* Slightly enlarge on hover */
+}
+
+/* Right Sidebar */
+.right-sidebar {
+    grid-area: right-sidebar;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #101010; /* Dark gray */
+    color: white;
+}
+
+.right-sidebar-item {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    animation: fadeIn 0.5s ease; /* Fade-in effect */
+}
+
+.right-sidebar-item:hover {
+    background-color: #0c0c0c; /* Lighter gray */
+}
+
+.right-sidebar-item i {
+    font-size: 32px;
+}
+
+/* Chat box at the bottom */
+footer.chat-box {
+    grid-area: chat;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #101010; /* Dark gray */
+    border-top: 2px solid #fafbfc;
+}
+
+/* Textarea styling for chat box */
+.chat-box textarea {
+    width: 90%;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    resize: none;
+}
+
+/* Send button styling */
+.send-btn {
+    margin-left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f6f7f9; /* Light color */
+    color: rgb(13, 12, 12);
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.send-btn:hover {
+    background-color: #3b3c3c; /* Darker color */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
